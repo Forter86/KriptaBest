@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KriptaBest — Крипто-трекер</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f5fa',
+              100: '#e1ebf4',
+              200: '#c5d7e8',
+              300: '#9bb8d4',
+              400: '#6b94b8',
+              500: '#4a759c',
+              600: '#3a5d80',
+              700: '#314c68',
+              800: '#2b4157',
+              900: '#273849',
+            },
+            slateish: {
+              50: '#f7f8fa',
+              100: '#eef0f3',
+              200: '#d9dde3',
+              300: '#b8bfca',
+              400: '#9099a8',
+              500: '#737c8c',
+              600: '#5d6573',
+              700: '#4c525e',
+              800: '#414650',
+              900: '#393d45',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body class="bg-slateish-50 text-slateish-900 min-h-screen">
+  <div id="app" class="min-h-screen flex flex-col">
+    <header class="bg-brand-700 text-white shadow-md sticky top-0 z-40">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        <a href="#/" class="font-semibold text-lg tracking-tight hover:text-brand-100 transition" data-link>
+          KriptaBest
+        </a>
+        <nav class="flex items-center gap-1 sm:gap-2 text-sm">
+          <a href="#/" class="nav-link px-3 py-1.5 rounded-md hover:bg-brand-600 transition" data-link data-route="home">Главная</a>
+          <a href="#/portfolio" class="nav-link px-3 py-1.5 rounded-md hover:bg-brand-600 transition" data-link data-route="portfolio">Портфель</a>
+        </nav>
+        <div id="header-status" class="flex items-center gap-2 text-xs text-brand-100 min-w-[7rem] justify-end">
+          <span id="poll-indicator" class="hidden items-center gap-1.5">
+            <span class="spinner-sm"></span>
+            <span>Обновление…</span>
+          </span>
+          <span id="last-updated" class="opacity-80"></span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="flex-1 max-w-6xl w-full mx-auto px-4 py-6"></main>
+
+    <footer class="border-t border-slateish-200 bg-white text-slateish-500 text-xs py-4">
+      <div class="max-w-6xl mx-auto px-4 flex flex-wrap justify-between gap-2">
+        <span>Данные: CoinGecko API · Без фреймворков</span>
+        <span>SPA · Single Source of Truth</span>
+      </div>
+    </footer>
+  </div>
+
+  <div id="toast-root" class="fixed bottom-4 left-4 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none"></div>
+  <div id="modal-root"></div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
